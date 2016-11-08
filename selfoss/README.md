@@ -24,10 +24,10 @@ Conteneur Selfoss basé sur alpine
 
 
 ## Lancement simple
-``docker run -d -p 80:80 arckosfr/selfoss``
+``docker run -d -p 8080:8080 arckosfr/selfoss``
 
 ## Lancement avec un volume
-``docker run -d -p 80:80 -v /mnt:/selfoss/data --name selfoss arckosfr/selfoss``
+``docker run -d -p 8080:8080 -v /mnt:/selfoss/data --name selfoss arckosfr/selfoss``
 
 ## Bonus : reverse proxy nginx
 ```
