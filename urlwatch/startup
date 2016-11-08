@@ -1,0 +1,14 @@
+#!/bin/sh
+
+addgroup -g ${GID} urlwatch && adduser -h /home/urlwatch -s /bin/sh -G urlwatch -u ${UID} -D urlwatch
+
+chown -R ${UID}:${GID} /home/urlwatch
+
+echo '/15 * * * * GOSU '${GID}':'${GID}' sh -c "urlwatch"' >> /etc/crontabs/root
+
+boucle=1
+
+while test $boucle = 1
+do  gosu ${UID}:${GID} sh -c "/usr/bin/urlwatch"
+	sleep 15m
+done

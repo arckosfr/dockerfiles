@@ -1,0 +1,8 @@
+build:
+  image: xataz/drone-docker:latest
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /docker/.docker/config.json:/root/.docker/config.json
+  commands:
+    - chmod +x build.sh
+    - ./build.sh push
