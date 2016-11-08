@@ -7,13 +7,13 @@ sed -i "s/<CRON_PERIOD>/$CRON_PERIOD/g" /etc/s6.d/cron/run
 if [ -e /selfoss/data/config.ini ]
 then
 	ln -s /selfoss/data/config.ini /selfoss/config.ini
-	chown -R web:web /selfoss /php /nginx /etc/s6.d /var/lib/nginx
+	chown -R web:web /selfoss /php /nginx /etc/s6.d /tmp
 else
 	cp -R /selfoss/bkp/* /selfoss/data/
 	mv /selfoss/defaults.ini /selfoss/data/config.ini
 	ln -s /selfoss/data/config.ini /selfoss/config.ini
 	sed -ri 's#base_url=#base_url=/#' /selfoss/data/config.ini
-	chown -R web:web /selfoss /php /nginx /etc/s6.d /var/lib/nginx
+	chown -R web:web /selfoss /php /nginx /etc/s6.d /tmp
 fi
 
 exec su-exec web:web "$@"

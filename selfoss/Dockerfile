@@ -17,7 +17,7 @@ RUN apk add --update \
     git clone -q https://github.com/bcosca/fatfree --depth=1 /tmp/f3 && \
     rm -rf /selfoss/libs/f3/* && mv /tmp/f3/lib/* /selfoss/libs/f3/ && \
   	cp -R /selfoss/data /selfoss/bkp &&\
-    rm -rf /var/cache/apk/* /tmp  && apk del unzip git
+    rm -rf /var/cache/apk/* /tmp/*  && apk del unzip git
 
 COPY rootfs /
 RUN chmod +x /usr/local/bin/startup /etc/s6.d/*/*
