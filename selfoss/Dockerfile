@@ -2,7 +2,7 @@ FROM xataz/nginx-php:latest
 
 MAINTAINER arckosfr <contact@lemark.xyz>
 
-LABEL version="2016110812" \
+LABEL version="201611091" \
       tags="latest"
 
 ENV UID=991 GID=991 VER=2.15 CRON_PERIOD=15m
