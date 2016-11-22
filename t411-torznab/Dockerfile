@@ -1,5 +1,8 @@
 FROM xataz/node:latest-onbuild
-MAINTAINER xataz <https://github.com/xataz>
+MAINTAINER arckosfr <contact@lemark.xyz>
+
+LABEL version="201611221" \
+      tags="latest"
 
 ENV GID=991 UID=991 USERNAME="t411" PASSWORD="t411"
 
