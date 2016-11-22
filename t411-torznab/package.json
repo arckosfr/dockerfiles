@@ -1,0 +1,21 @@
+{
+  "name": "T411-torznab",
+  "description": "Sonarr Torznab proxy for T411",
+  "version": "0.0.0",
+  "private": true,
+  "main": "server",
+  "homepage": "https://github.com/KiLMaN/T411-Torznab/",
+  "author": {
+    "name": "KiLMaN"
+  },
+  "dependencies": {
+    "underscore" : "*",
+    "winston":"*",
+    "request" : "*",
+    "minimist" : "*",
+    "tvragejson" : "*",
+    "express": "~4.12.2",
+    "node-cache" : "*",
+    "xml" : "*"
+  }
+}
