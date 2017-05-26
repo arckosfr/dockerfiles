@@ -30,18 +30,18 @@ Fast, flexible and pragmatic, PHP powers everything from your blog to the most p
 
 ### simple build
 ```shell
-docker build -t xataz/nginx-php github.com/xataz/dockerfiles.git#master:nginx-php
+docker build -t arckosfr/nginx-php github.com/xataz/dockerfiles.git#master:nginx-php
 ```
 
 ### Build with arguments
 ```shell
-docker build -t xataz/nginx-php \
+docker build -t arckosfr/nginx-php \
         --build-arg NGINX_VER=1.10.1 \
         --build-arg PHP_VER=5.6.27 \
         --build-arg PHP_EXT_LIST="gd mysqli gmp" \
         --build-arg CUSTOM_BUILD_PKGS="freetype-dev gmp-dev" \
         --build-arg CUSTOM_PKGS="freetype gmp" \
-        github.com/xataz/dockerfiles.git#master:nginx-php
+        github.com/arckosfr/dockerfiles.git#master:nginx-php
 ```
 
 
@@ -74,7 +74,7 @@ location ~ \.php$ {
 ## Usage
 ### Simple launch
 ```shell
-docker run -d -p 8080:8080 xataz/nginx-php
+docker run -d -p 8080:8080 arckosfr/nginx-php
 ```
 URI access : http://XX.XX.XX.XX:8080
 
@@ -85,7 +85,7 @@ docker run -d -p 80:8080 -p 443:8443 \
       -v /docker/nginx/certs:/nginx/certs \
 	  -e UID=1001 \
 	  -e GID=1001 \
-	xataz/nginx-php
+	arckosfr/nginx-php
 ```
 URI access : http://XX.XX.XX.XX
 
