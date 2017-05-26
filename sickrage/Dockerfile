@@ -5,7 +5,7 @@ MAINTAINER arckosfr <contact@lemark.xyz>
 LABEL description="sickrage based on alpine" \
       tags="latest" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="201705265"
+      build_ver="201705266"
 
 ENV WEBROOT="/" \
     UID="991" \
