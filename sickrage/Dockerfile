@@ -23,7 +23,7 @@ RUN apk add -U python \
     && rm -rf /var/cache/apk/* ~/.pip/cache/*
 
 COPY rootfs /
-RUN chmod +x /usr/local/bin/startup /etc/s6.d/*/*
+RUN chmod +x /usr/local/bin/start /etc/s6.d/*/*
 
 VOLUME ["/config"]
 EXPOSE 8081
