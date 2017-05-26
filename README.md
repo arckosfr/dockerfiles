@@ -1,7 +1,7 @@
 # Dockerfiles REPO
 
 ## BUILD STATUS :
-[![Build Status](http://drone.lemark.xyz/api/badges/arckosfr/dockerfiles/status.svg)](http://drone.lemark.xyz/arckosfr/dockerfiles)
+[![Build Status](https://drone.lemark.xyz/api/badges/arckosfr/dockerfiles/status.svg)](https://drone.lemark.xyz/arckosfr/dockerfiles)
 
 ## What is it ?
 In this repo, you will find dockerfiles, with a philosophy of being as light as possible.
