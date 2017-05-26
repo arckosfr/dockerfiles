@@ -28,5 +28,5 @@ RUN chmod +x /usr/local/bin/startup /etc/s6.d/*/*
 VOLUME ["/config"]
 EXPOSE 8081
 
-ENTRYPOINT ["/usr/local/bin/startup"]
+ENTRYPOINT ["/usr/local/bin/start"]
 CMD ["/bin/s6-svscan", "/etc/s6.d"]
