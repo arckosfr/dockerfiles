@@ -1,6 +1,6 @@
 # Dockerfiles REPO
 
-## BUILD STATUS :
+## BUILD STATUS : 
 [![Build Status](https://drone.lemark.xyz/api/badges/arckosfr/dockerfiles/status.svg)](https://drone.lemark.xyz/arckosfr/dockerfiles)
 
 ## What is it ?
