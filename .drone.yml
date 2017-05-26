@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: arckosfr/docker-base
+    image: arckosfr/drone-base
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /docker/.docker/config.json:/root/.docker/config.json

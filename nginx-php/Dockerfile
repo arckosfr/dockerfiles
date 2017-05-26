@@ -89,7 +89,7 @@ LABEL description="nginx based on alpine" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="arckosfr <https://github.com/arckosfr>" \
-      build_ver="201705261"
+      build_ver="201705262"
 
 COPY rootfs /
 

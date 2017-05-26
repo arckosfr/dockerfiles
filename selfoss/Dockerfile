@@ -2,10 +2,10 @@ FROM xataz/nginx-php:latest
 
 MAINTAINER arckosfr <contact@lemark.xyz>
 
-LABEL version="201611211" \
+LABEL version="201705261" \
       tags="latest"
 
-ENV UID=991 GID=991 VER=2.16 CRON_PERIOD=15m
+ENV UID=991 GID=991 VER=2.17 CRON_PERIOD=15m
 
 ADD https://github.com/SSilence/selfoss/releases/download/${VER}/selfoss-${VER}.zip /tmp/
 
