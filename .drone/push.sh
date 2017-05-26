@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -e .tmp/images.txt ]; then
     for image in $(cat .tmp/images.txt); do

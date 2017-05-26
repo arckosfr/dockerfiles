@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # this is kind of an expensive check, so let's not do this twice if we
 # are running more than one validate bundlescript
 
