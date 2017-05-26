@@ -1,0 +1,13 @@
+#!/bin/sh
+
+addgroup -g ${GID} web && adduser -H -s /bin/sh -D -G web -u ${UID} web
+
+mkdir -p /nginx /php
+
+chown -R web:web /nginx /php /etc/s6.d
+
+if [ '$@' == '' ]; then
+    exec su-exec web:web /bin/s6-svscan /etc/s6.d
+else
+    exec su-exec web:web "$@"
+fi

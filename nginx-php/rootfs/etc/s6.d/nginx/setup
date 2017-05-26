@@ -1,0 +1,32 @@
+#!/bin/sh
+
+mkdir -p /nginx/logs /nginx/run /nginx/sites-enabled /nginx/www/html
+
+if [ "$(ls /nginx/sites-enabled)" == "" ];then
+    echo "
+    server {
+	listen 8080;
+	    root /nginx/www/html;
+        index index.html index.htm index.php;
+
+        location ~ \.php$ {
+            include /nginx/conf.d/php.conf;
+        }
+    }
+    " > /nginx/sites-enabled/default.conf
+fi
+
+if [ "$(ls /nginx/www/html/)" == "" ];then
+mkdir -p /nginx/www/html
+echo "
+    <!DOCTYPE html>
+    <head><title>Alpine Docker and Nginx</title></head>
+    <h1>Nginx $(nginx -v 2>&1 | cut -d/ -f2) and $(php-fpm -v | head -1 | awk '{print $1,$2}') on $(hostname)</h1>
+    <p>
+	Nginx + php-fpm running inside a $(du -sh / 2> /dev/null | awk '{print $1}') Alpine Docker Container.<br>
+    </p>
+    <?php
+        phpinfo();
+    ?>
+" > /nginx/www/html/index.php
+fi

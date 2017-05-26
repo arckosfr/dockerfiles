@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mkdir -p /php/php-fpm.d /php/logs /php/run
