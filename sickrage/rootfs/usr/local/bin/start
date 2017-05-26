@@ -1,0 +1,21 @@
+#!/bin/sh
+
+addgroup -g ${GID} sickrage && adduser -h /home/sickrage -s /bin/sh -D -G sickrage -u ${UID} sickrage
+
+if [ ! -f /config/config.ini ]
+then
+    if [ -z ${APIKEY} ]; then
+        APIKEY=$(date +%s | md5sum | head -c 32)
+    fi
+	mv /tmp/config.ini /config/config.ini
+	sed -i "s|<webroot>|"${WEBROOT}"|" /config/config.ini
+    sed -i "s|<apikey>|"${APIKEY}"|" /config/config.ini
+fi
+
+chown -R sickrage:sickrage /config /SickRage /etc/s6.d
+
+if [ '$@' == '' ]; then
+    exec su-exec sickrage:sickrage /bin/s6-svscan /etc/s6.d
+else
+    exec su-exec sickrage:sickrage "$@"
+fi

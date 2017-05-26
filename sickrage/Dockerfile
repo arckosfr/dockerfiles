@@ -1,26 +1,34 @@
-FROM xataz/alpine:3.4
+FROM xataz/alpine:3.5
 
 MAINTAINER arckosfr <contact@lemark.xyz>
 
-LABEL version="201608107" \
-      tags="latest"
+LABEL description="sickrage based on alpine" \
+      tags="latest" \
+      maintainer="xataz <https://github.com/xataz>" \
+      build_ver="201705261"
 	  
 ENV TORRENT_METHOD="rtorrent" UID=5000 GID=5000
 
-ADD start.sh /usr/bin/start.sh
-ADD config.ini /tmp/config.ini
+ENV WEBROOT="/" \
+    UID="991" \
+    GID="991"
 
-RUN apk add --update \
-		git \
-		python \
-		py-pip && \
-	pip install \
-		cheetah && \
-	git clone https://github.com/SickRage/SickRage.git && \
-	apk del py-pip && rm -rf /var/cache/apk/* && \
-	chmod +x /usr/bin/start.sh
+RUN apk add -U python \
+                py2-pip \
+                git \
+                s6 \
+                su-exec \
+                unrar \
+    && pip install cheetah \
+    && git clone https://github.com/SickRage/SickRage.git \
+    && apk del py-pip \
+    && rm -rf /var/cache/apk/* ~/.pip/cache/*
 
-VOLUME [ "/config", "/blackhole", "/torrents"]
+COPY rootfs /
+RUN chmod +x /usr/local/bin/startup /etc/s6.d/*/*
+
+VOLUME ["/config"]
 EXPOSE 8081
 
-CMD ["usr/bin/tini","--","/usr/bin/start.sh"]
+ENTRYPOINT ["/usr/local/bin/startup"]
+CMD ["/bin/s6-svscan", "/etc/s6.d"]

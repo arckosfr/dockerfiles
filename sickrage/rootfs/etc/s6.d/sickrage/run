@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /SickRage
+exec /usr/bin/python /SickRage/SickBeard.py --datadir=/config
